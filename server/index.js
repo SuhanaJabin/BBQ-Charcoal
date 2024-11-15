@@ -13,7 +13,9 @@ app.use(cors());
 const filePath = path.join(__dirname, '..', 'user_submissions.csv');
 
 let customerId = 1; // Starting customer ID; this could be made persistent if needed
-
+app.use("/",(req,res)=>{
+  res.send("Server is running.")
+})
 app.post('/send-email', async (req, res) => {
   const { name, email, phone } = req.body;
 
@@ -56,6 +58,8 @@ app.post('/send-email', async (req, res) => {
 });
 
 // Start the server
+
+
 const PORT = 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

@@ -65,7 +65,7 @@ function Navbar() {
 
       {/* Mobile Links aligned to the right */}
       <div 
-        className={`md:hidden fixed top-0 p-10 rounded-lg tracking-wder mt-20 right-0 h-3/4 w-1/2 bg-black bg-opacity-80 text-white py-4 space-y-8 z-30 text-xl transform transition-transform duration-500 ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
+        className={`md:hidden fixed top-0  rounded-lg tracking-wder mt-20 right-0 h-1/2 w-1/2 bg-black bg-opacity-80 text-white  space-y-2 z-30 text-xl transform transition-transform duration-500 ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
         style={{
           boxShadow: '0 0 10px 3px rgba(255, 170, 0, 0.8)', // glowing yellow border effect
           border: '2px solid rgba(255, 150, 0, 0.8)' // optional solid border for extra definition

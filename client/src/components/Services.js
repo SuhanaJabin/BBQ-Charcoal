@@ -37,9 +37,7 @@ const Services = () => {
       <div className="bg-black bg-opacity-60 py-10 px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20">
         <div className="text-center mb-8 sm:mb-12">
           <h2
-            className={`text-3xl sm:text-4xl md:text-5xl font-bold text-gray-100 mb-6 sm:mb-8 tracking-wide ${
-              isVisible ? 'animate-zoomOut' : 'opacity-0'
-            }`}
+            className={"text-3xl sm:text-4xl md:text-5xl font-bold text-gray-100 mb-6 sm:mb-8 tracking-wide "}
           >
             Our Services
           </h2>

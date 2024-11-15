@@ -20,13 +20,13 @@ function App() {
       <section id="about" className="">
        
         <About />
-        {/* Content */}
+   
       </section>
 
       <section id="products" className="h-screen">
      
         <Image />
-        {/* Content */}
+     
       </section>
 
       <section id="services" className="">

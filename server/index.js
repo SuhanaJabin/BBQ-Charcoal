@@ -18,17 +18,18 @@ app.use(cors({
 app.options('*', cors());
 
 // CSV file path in the current directory
-// const filePath = 'user_submissions.csv';
 const filePath = path.join(__dirname, 'user_submissions.csv');
 let customerId = 1;
 
 // Ensure the CSV file exists, or create it with headers
 if (!fs.existsSync(filePath)) {
   const headers = 'CustomerID,Name,Email,Phone\n';
-  fs.writeFileSync(filePath, headers, (err) => {
-    if (err) console.error('Error creating CSV file:', err);
-    else console.log('CSV file created successfully with headers');
-  });
+  try {
+    fs.writeFileSync(filePath, headers, 'utf8');
+    console.log('CSV file created successfully with headers');
+  } catch (err) {
+    console.error('Error creating CSV file:', err);
+  }
 }
 
 app.get("/", (req, res) => {
@@ -58,16 +59,23 @@ app.post('/send-email', async (req, res) => {
     await transporter.sendMail(mailOptions);
 
     // Append user data to the CSV file
-    // const userData = `${customerId},${name},${email},${phone}\n`;
-    // fs.appendFileSync(filePath, userData, 'utf8');
-    // console.log('User data appended to CSV file');
-    // customerId++; 
-    res.status(200).json({ message: 'Email sent and user data saved successfully!' });// Increment the customer ID for the next user
+    const userData = `${customerId},${name},${email},${phone}\n`;
 
+    // Append to CSV file
+    try {
+      fs.appendFileSync(filePath, userData, 'utf8');
+      console.log('User data appended to CSV file');
+      customerId++; // Increment the customer ID for the next user
+    } catch (err) {
+      console.error('Error appending to CSV file:', err);
+      return res.status(500).json({ message: 'Failed to save data to CSV' });
+    }
+
+    res.status(200).json({ message: 'Email sent and user data saved successfully!' });
 
   } catch (error) {
-    console.error('Error sending email or saving data:', error);
-    res.status(500).json({ message: 'Failed to send email or save data' });
+    console.error('Error sending email:', error);
+    res.status(500).json({ message: 'Failed to send email' });
   }
 });
 

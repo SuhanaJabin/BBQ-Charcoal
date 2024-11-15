@@ -31,7 +31,7 @@ const Services = () => {
   return (
     <section
       ref={sectionRef}
-      className="services-section py-10 px-4 sm:px-8 bg-gray-900 bg-cover bg-center"
+      className="services-section py-10 mt-20 px-4 sm:px-8 bg-gray-900 bg-cover bg-center"
       style={{ backgroundImage: 'url(/charcoal.jpg)' }}
     >
       <div className="bg-black bg-opacity-60 py-10 px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20">

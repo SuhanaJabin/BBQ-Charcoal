@@ -25,7 +25,7 @@ const images = [
 
 const Image = () => {
   return (
-    <div className="relative py-10 mb-20 min-h-screen">
+    <div className="relative py-10 mb-20 min-h-screen mt-20">
       {/* Video Background */}
       <video
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
@@ -43,11 +43,11 @@ const Image = () => {
       {/* Main Content */}
       <div className="relative z-10 text-center text-gray-200 ">
         {/* Heading Section */}
-        <div className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-wider mt-5 px-4 sm:px-8 md:px-16 lg:px-24">
+        <div className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-wider mt-20 px-4 sm:px-8 md:px-16 lg:px-24">
           Our Products
         </div>
 
-        <div className="text-sm sm:text-lg md:text-xl mt-8 mb-20 text-justify leading-relaxed px-4 sm:px-8 md:px-16 lg:px-24">
+        <div className="text-sm sm:text-lg md:text-xl mt-8 mb-10 text-justify leading-relaxed p-10 sm:px-12 md:px-16 lg:px-24">
           <p>
             At King's BBQ Charcoal, we offer a range of premium charcoal products that enhance your grilling experience.
             Whether you are cooking for family and friends or grilling for a large event, our charcoal provides a

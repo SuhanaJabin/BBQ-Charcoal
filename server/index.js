@@ -8,20 +8,27 @@ const cors = require('cors');
 const app = express();
 app.use(bodyParser.json());
 
-// Updated CORS configuration
+// Configure CORS
 app.use(cors({
-  origin: 'https://bbq-charcoal-client.vercel.app', // Your frontend domain
-  methods: ['GET', 'POST', 'OPTIONS'], // Allow necessary methods
-  allowedHeaders: ['Content-Type', 'Authorization'], // Headers allowed in requests
+  origin: 'https://bbq-charcoal-client.vercel.app', 
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
 }));
 
-// Handle preflight requests (important for CORS)
 app.options('*', cors());
 
-// Path to the CSV file in the parent directory
-const filePath = path.join(__dirname, '..', 'user_submissions.csv');
+// CSV file path in the current directory
+const filePath = path.join(__dirname, 'user_submissions.csv');
+let customerId = 1;
 
-let customerId = 1; // Starting customer ID
+// Ensure the CSV file exists, or create it with headers
+if (!fs.existsSync(filePath)) {
+  const headers = 'CustomerID,Name,Email,Phone\n';
+  fs.writeFileSync(filePath, headers, (err) => {
+    if (err) console.error('Error creating CSV file:', err);
+    else console.log('CSV file created successfully with headers');
+  });
+}
 
 app.get("/", (req, res) => {
   res.send("Server is running.");
@@ -30,11 +37,12 @@ app.get("/", (req, res) => {
 app.post('/send-email', async (req, res) => {
   const { name, email, phone } = req.body;
 
+  // Configure nodemailer transporter
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'suhanajabinpk@gmail.com',
-      pass: 'qyac tfdx zgin mllg', // Be cautious with sensitive data
+      user: 'suhanajabinpk@gmail.com', 
+      pass: 'qyac tfdx zgin mllg',
     },
   });
 
@@ -48,35 +56,20 @@ app.post('/send-email', async (req, res) => {
   try {
     await transporter.sendMail(mailOptions);
 
-    const userData = `${customerId},${name},${email},${phone}`;
+    // Append user data to the CSV file
+    const userData = `${customerId},${name},${email},${phone}\n`;
+    fs.appendFileSync(filePath, userData, 'utf8');
+    console.log('User data appended to CSV file');
+    customerId++; // Increment the customer ID for the next user
 
-    fs.appendFile(filePath, `${userData}\n`, (err) => {
-      if (err) {
-        console.error('Error writing to file:', err);
-        return res.status(500).json({ message: 'Failed to store user data' });
-      }
-      console.log('User data appended to CSV file');
-      customerId++;
-      res.status(200).json({ message: 'Email sent and user data saved successfully!' });
-    });
+    res.status(200).json({ message: 'Email sent and user data saved successfully!' });
   } catch (error) {
-    console.error('Error sending email:', error);
-    res.status(500).json({ message: 'Failed to send email' });
+    console.error('Error sending email or saving data:', error);
+    res.status(500).json({ message: 'Failed to send email or save data' });
   }
 });
 
 const PORT = 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
-
-  if (!fs.existsSync(filePath)) {
-    const headers = 'CustomerID,Name,Email,Phone\n';
-    fs.writeFile(filePath, headers, (err) => {
-      if (err) {
-        console.error('Error creating CSV file:', err);
-      } else {
-        console.log('CSV file created successfully with headers');
-      }
-    });
-  }
 });

@@ -20,7 +20,7 @@ function User() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('https://bbq-charcoal-server.vercel.app/send-email', { 
+      const response = await fetch('/send-email', { 
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -30,6 +30,10 @@ function User() {
       
       if (response.ok) {
         setSubmissionMessage("Your details are submitted. We'll contact you soon!");
+        const timer = setTimeout(() => {
+          setSubmissionMessage('');
+          console.log("Submission Message Cleared"); // Debugging
+        }, 5000);
       } else {
         alert('Failed to send email.');
       }

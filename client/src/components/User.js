@@ -136,6 +136,7 @@ function User() {
                 type="tel"
                 name="phone"
                 id="phone"
+                maxLength="10"
                 value={formData.phone}
                 onChange={handleChange}
                 required

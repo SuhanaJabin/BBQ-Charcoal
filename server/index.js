@@ -58,10 +58,10 @@ app.post('/send-email', async (req, res) => {
     await transporter.sendMail(mailOptions);
 
     // Append user data to the CSV file
-    const userData = `${customerId},${name},${email},${phone}\n`;
-    fs.appendFileSync(filePath, userData, 'utf8');
-    console.log('User data appended to CSV file');
-    customerId++; 
+    // const userData = `${customerId},${name},${email},${phone}\n`;
+    // fs.appendFileSync(filePath, userData, 'utf8');
+    // console.log('User data appended to CSV file');
+    // customerId++; 
     res.status(200).json({ message: 'Email sent and user data saved successfully!' });// Increment the customer ID for the next user
 
 

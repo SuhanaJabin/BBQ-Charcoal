@@ -58,8 +58,19 @@ app.post('/send-email', async (req, res) => {
   try {
     await transporter.sendMail(mailOptions);
 
-    // Append user data to the CSV file
+    // Prepare user data
     const userData = `${customerId},${name},${email},${phone}\n`;
+
+    // Debugging: Check if the file exists and is writable
+    console.log('Checking if file exists at:', filePath);
+    fs.access(filePath, fs.constants.W_OK, (err) => {
+      if (err) {
+        console.error('File is not writable:', err);
+        return res.status(500).json({ message: 'File is not writable' });
+      } else {
+        console.log('File is writable');
+      }
+    });
 
     // Append to CSV file
     try {

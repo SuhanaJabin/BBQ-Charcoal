@@ -58,9 +58,9 @@ app.post('/send-email', async (req, res) => {
 
     // Append user data to the CSV file
     const userData = `${customerId},${name},${email},${phone}\n`;
-    fs.appendFileSync(filePath, userData, 'utf8');
-    console.log('User data appended to CSV file');
-    customerId++; // Increment the customer ID for the next user
+    // fs.appendFileSync(filePath, userData, 'utf8');
+    // console.log('User data appended to CSV file');
+    // customerId++; // Increment the customer ID for the next user
 
     res.status(200).json({ message: 'Email sent and user data saved successfully!' });
   } catch (error) {

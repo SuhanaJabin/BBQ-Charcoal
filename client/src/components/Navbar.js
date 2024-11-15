@@ -10,9 +10,9 @@ function Navbar() {
   };
 
   return (
-    <nav className="py-2 fixed top-0 left-0 w-full z-50 bg-black bg-opacity-70">
+    <nav className="py-3 fixed top-0 left-0 w-full z-50 bg-black bg-opacity-70">
       {/* Video Background */}
-      <video
+      {/* <video
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
         autoPlay
         loop
@@ -20,11 +20,11 @@ function Navbar() {
       >
         <source src="/background3.mp4" type="video/mp4" />
         Your browser does not support the video tag.
-      </video>
+      </video> */}
       <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
 
       <div className="container mx-auto flex justify-between text-white items-center relative z-10">
-        <div className="text-xl font-bold w-[70px] h-[70px]">
+        <div className="ml-5 text-xl font-bold w-[50px] h-[50px]">
           <img src='/mylogo.png' alt="Logo" />
         </div>
 
@@ -48,7 +48,7 @@ function Navbar() {
         </div>
 
         {/* Mobile Menu Toggle Button */}
-        <div className="md:hidden z-30 relative">
+        <div className=" mr-5 md:hidden z-30 relative">
           <button onClick={toggleMenu} className="text-3xl">
             {isOpen ? <FiX /> : <FiMenu />}
           </button>

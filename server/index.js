@@ -2,6 +2,7 @@ const express = require('express');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
 const fs = require('fs');
+const path = require('path');
 const cors = require('cors');
 
 const app = express();
@@ -16,14 +17,14 @@ app.use(cors({
 
 app.options('*', cors());
 
-// Directly reference the CSV file by name in the current directory
-const filePath = 'user_submissions.csv';
+// CSV file path in the current directory
+const filePath = path.join(__dirname, 'user_submissions.csv');
 let customerId = 1;
 
 // Ensure the CSV file exists, or create it with headers
 if (!fs.existsSync(filePath)) {
   const headers = 'CustomerID,Name,Email,Phone\n';
-  fs.writeFileSync(filePath, headers, 'utf8', (err) => {
+  fs.writeFileSync(filePath, headers, (err) => {
     if (err) console.error('Error creating CSV file:', err);
     else console.log('CSV file created successfully with headers');
   });

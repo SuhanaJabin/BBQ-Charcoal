@@ -43,5 +43,5 @@
   "devDependencies": {
     "tailwindcss": "^3.4.14"
   },
-  "proxy": "https://bbq-charcoal-server.vercel.app/"
+  "proxy": "https://bbq-charcoal-server.vercel.app"
 }

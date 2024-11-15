@@ -20,7 +20,7 @@ function User() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('https://bbq-charcoal-server.vercel.app/send-email', { 
+      const response = await fetch('/send-email', { 
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

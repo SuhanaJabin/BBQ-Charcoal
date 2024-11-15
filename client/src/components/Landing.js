@@ -28,7 +28,7 @@ function Landing() {
 
       {/* Heading with fire-glowing sparkling effect */}
       <div className="relative z-10 text-center animate-fadeIn">
-        <h1 className="text-6xl sm:text-6xl lg:text-[150px] font-bold tracking-wider text-white fire-glow">
+        <h1 className="text-6xl sm:text-6xl lg:text-[150px] font-bold tracking-wider text-white ">
           <span style={{ color: "#eA2300" }}>K</span>ING<span style={{ color: "#eA2300" }}>'</span>S
         </h1>
         <h2 className="text-xl sm:text-2xl lg:text-6xl text-white tracking-widest mt-2 mb-20">

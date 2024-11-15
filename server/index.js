@@ -7,7 +7,14 @@ const path = require('path');
 const app = express();
 app.use(bodyParser.json());
 const cors = require('cors'); 
-app.use(cors());
+const cors = require('cors');
+app.use(cors({
+  origin: 'https://bbq-charcoal-client.vercel.app', 
+  methods: ['POST'],
+  allowedHeaders: ['Content-Type'],
+}));
+
+
 
 // Path to the CSV file in the parent directory
 const filePath = path.join(__dirname, '..', 'user_submissions.csv');

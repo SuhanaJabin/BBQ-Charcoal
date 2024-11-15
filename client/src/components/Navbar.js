@@ -65,7 +65,7 @@ function Navbar() {
 
       {/* Mobile Links aligned to the right */}
       <div 
-        className={`md:hidden fixed top-0  rounded-lg tracking-wder mt-20 right-0 h-1/2 w-1/2 bg-black bg-opacity-80 text-white  space-y-2 z-30 text-xl transform transition-transform duration-500 ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
+        className={`md:hidden fixed top-0  rounded-lg tracking-wder mt-20 right-0 h-[400px] w-1/2 bg-black bg-opacity-80 text-white  space-y-2 z-30 text-xl transform transition-transform duration-500 ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
         style={{
           boxShadow: '0 0 10px 3px rgba(255, 170, 0, 0.8)', // glowing yellow border effect
           border: '2px solid rgba(255, 150, 0, 0.8)' // optional solid border for extra definition
@@ -76,7 +76,7 @@ function Navbar() {
           smooth={true}
           duration={500}
           onClick={toggleMenu}
-          className="hover:text-orange-300 font-bold tracking-wider text-center transition cursor-pointer block px-4 py-5 mt-5"
+          className="hover:text-orange-300 text-center transition cursor-pointer block px-4 py-2 mt-16"
         >
           Home
         </Link>
@@ -85,7 +85,7 @@ function Navbar() {
           smooth={true}
           duration={500}
           onClick={toggleMenu}
-          className="hover:text-orange-300 text-center transition cursor-pointer block px-4 py-2"
+          className="hover:text-orange-300 text-center transition cursor-pointer block px-4 py-3"
         >
           About
         </Link>
@@ -94,7 +94,7 @@ function Navbar() {
           smooth={true}
           duration={500}
           onClick={toggleMenu}
-          className="hover:text-orange-300 text-center transition cursor-pointer block px-4 py-2"
+          className="hover:text-orange-300 text-center transition cursor-pointer block px-4 py-3"
         >
           Products
         </Link>
@@ -103,7 +103,7 @@ function Navbar() {
           smooth={true}
           duration={500}
           onClick={toggleMenu}
-          className="hover:text-orange-300 text-center transition cursor-pointer block px-4 py-2"
+          className="hover:text-orange-300 text-center transition cursor-pointer block px-4 py-3"
         >
           Services
         </Link>
@@ -112,7 +112,7 @@ function Navbar() {
           smooth={true}
           duration={500}
           onClick={toggleMenu}
-          className="hover:text-orange-300 text-center transition cursor-pointer block px-4 py-2"
+          className="hover:text-orange-300 text-center transition cursor-pointer block px-4 py-3"
         >
           Contact
         </Link>

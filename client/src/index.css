@@ -205,4 +205,26 @@ body {
   animation: glow 2s infinite;
   border-radius: 0.5rem;
   transition: transform 0.3s ease;
+
+
+
 }
+
+
+/* Landing.css */
+
+@keyframes zoomInEffect {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.zoom-in-heading {
+  animation: zoomInEffect 2s ease-out forwards;
+}
+

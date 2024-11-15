@@ -5,7 +5,7 @@ function Landing() {
   return (
    <div>
    
-     <div className="relative flex flex-col items-center justify-center h-screen overflow-hidden mt-20">
+     <div className="relative flex flex-col items-center justify-center h-screen overflow-hidden mt-10">
       {/* Background Video */}
       <video
         className="absolute top-0 left-0 w-full h-full object-cover z-0"

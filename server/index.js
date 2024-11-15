@@ -55,12 +55,13 @@ app.post('/send-email', async (req, res) => {
 
   try {
     await transporter.sendMail(mailOptions);
-    res.status(200).json({ message: 'Email sent and user data saved successfully!' });
+
     // Append user data to the CSV file
-    // const userData = `${customerId},${name},${email},${phone}\n`;
-    // fs.appendFileSync(filePath, userData, 'utf8');
-    // console.log('User data appended to CSV file');
-    // customerId++; // Increment the customer ID for the next user
+    const userData = `${customerId},${name},${email},${phone}\n`;
+    fs.appendFileSync(filePath, userData, 'utf8');
+    console.log('User data appended to CSV file');
+    customerId++; 
+    res.status(200).json({ message: 'Email sent and user data saved successfully!' });// Increment the customer ID for the next user
 
 
   } catch (error) {

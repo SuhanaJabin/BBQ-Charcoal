@@ -58,29 +58,18 @@ app.post('/send-email', async (req, res) => {
   try {
     await transporter.sendMail(mailOptions);
 
-    // Prepare user data
+    // Append user data to the CSV file
     const userData = `${customerId},${name},${email},${phone}\n`;
 
-    // Debugging: Check if the file exists and is writable
-    console.log('Checking if file exists at:', filePath);
-    fs.access(filePath, fs.constants.W_OK, (err) => {
-      if (err) {
-        console.error('File is not writable:', err);
-        return res.status(500).json({ message: 'File is not writable' });
-      } else {
-        console.log('File is writable');
-      }
-    });
-
     // Append to CSV file
-    try {
-      fs.appendFileSync(filePath, userData, 'utf8');
-      console.log('User data appended to CSV file');
-      customerId++; // Increment the customer ID for the next user
-    } catch (err) {
-      console.error('Error appending to CSV file:', err);
-      return res.status(500).json({ message: 'Failed to save data to CSV' });
-    }
+    // try {
+    //   fs.appendFileSync(filePath, userData, 'utf8');
+    //   console.log('User data appended to CSV file');
+    //   customerId++; // Increment the customer ID for the next user
+    // } catch (err) {
+    //   console.error('Error appending to CSV file:', err);
+    //   return res.status(500).json({ message: 'Failed to save data to CSV' });
+    // }
 
     res.status(200).json({ message: 'Email sent and user data saved successfully!' });
 

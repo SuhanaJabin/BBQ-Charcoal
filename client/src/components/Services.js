@@ -41,7 +41,7 @@ const Services = () => {
           >
             Our Services
           </h2>
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-100 mt-2 sm:mt-4 mb-8 sm:mb-12 text-justify">
+          <p className="text-sm sm:text-xl md:text-2xl text-gray-100 mt-2 sm:mt-4 mb-8 sm:mb-12 text-justify">
             At King's BBQ Charcoal, we are committed to offering a variety of services to meet your needs. Whether you are an individual or a business, our services are tailored to provide top-quality products and exceptional customer satisfaction.
           </p>
         </div>

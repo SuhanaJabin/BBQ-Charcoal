@@ -18,7 +18,7 @@ app.use(cors({
 app.options('*', cors());
 
 // CSV file path in the current directory
-const filePath = path.join(__dirname, 'user_submissions.csv');
+const filePath = 'user_submissions.csv';
 let customerId = 1;
 
 // Ensure the CSV file exists, or create it with headers

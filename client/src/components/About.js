@@ -10,7 +10,7 @@ const About = () => {
         <div className="about-text w-full lg:w-1/2 text-center lg:text-left mb-8 lg:mb-0 p-6 lg:p-10">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-gray-100">About Us</h2>
           <p className="text-base sm:text-lg lg:text-xl text-gray-300 text-justify ">
-            At King's BBQ Charcoal, we take pride in providing high-quality charcoal that meets the needs of both residential and commercial customers. With years of expertise in the industry, we specialize in offering sustainably sourced, eco-friendly charcoal products that ensure optimal performance for grilling, heating, and industrial applications. Our commitment to excellence extends to ensuring every batch of charcoal is processed with care, giving you a reliable, clean-burning product that delivers superior results. We value customer satisfaction and are dedicated to being a trusted supplier for all your charcoal needs.
+            At King's BBQ Charcoal, we take pride in providing high-quality charcoal that meets the needs of both residential and commercial customers. With years of expertise in the industry, we specialize in offering sustainably sourced, eco-friendly charcoal products that ensure optimal performance for industrial applications. We value customer satisfaction and are dedicated to being a trusted supplier for all your charcoal needs.
           </p>
         </div>
 
